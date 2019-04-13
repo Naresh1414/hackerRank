@@ -16,14 +16,61 @@ class Solution {
 
     // Complete the formingMagicSquare function below.
     static int formingMagicSquare(int[][] s) {
+        int[][] T= new int[3][3];
+        T[0][0] = 4;T[0][1] = 9;T[0][2] = 2;
+        T[1][0] = 3;T[1][1] = 5;T[1][2] = 7;
+        T[2][0] = 8;T[2][1] = 1;T[2][2] = 6;
+        int minDiff=9999;
+        int diff=0;
 
+        diff=Diff(s,T);
+        if(diff<minDiff)
+            minDiff=diff;
 
+        T=Rotate(T)
+        diff=Diff(s,T);
+        if(diff<minDiff)
+            minDiff=diff;
+
+        T=Rotate(T)
+        diff=Diff(s,T);
+        if(diff<minDiff)
+            minDiff=diff;
+
+        T=Rotate(T)
+        diff=Diff(s,T);
+        if(diff<minDiff)
+            minDiff=diff;
+        
+        T=Mirror(T);
+
+        diff=Diff(s,T);
+        if(diff<minDiff)
+            minDiff=diff;
+
+        T=Rotate(T)
+        diff=Diff(s,T);
+        if(diff<minDiff)
+            minDiff=diff;
+
+        T=Rotate(T)
+        diff=Diff(s,T);
+        if(diff<minDiff)
+            minDiff=diff;
+
+        T=Rotate(T)
+        diff=Diff(s,T);
+        if(diff<minDiff)
+            minDiff=diff;
+        
+        return minDiff;
     }
+
 
     static int[][] Rotate(int[][] X)
     {
         int[][] Y = new int[3][3];
-        int ni=0
+        int ni=0;
         for(int i=0;i<3;i++)
         {
             if(i%2==0)
@@ -57,7 +104,7 @@ class Solution {
         int ans=0;
         for(i=0;i<3;i++)
             for(j=0;j<3;j++)
-                ans+=Math.abs(X[i][j]-Y[i][j])
+                ans+=Math.abs(X[i][j]-Y[i][j]);
         return ans;
     }
 
